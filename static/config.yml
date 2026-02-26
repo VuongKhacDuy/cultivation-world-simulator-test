@@ -1,0 +1,69 @@
+meta:
+  version: "1.7.0"
+
+llm:
+  default_modes:
+    action_decision: "normal"
+    long_term_objective: "normal"
+    nickname: "normal"
+    single_choice: "normal"
+    relation_resolver: "fast"
+    story_teller: "fast"
+    interaction_feedback: "fast"
+    history_influence: "normal"
+
+paths:
+  locales: static/locales/
+  shared_game_configs: static/game_configs/
+  # templates: static/templates/  <-- Managed by code now
+  # game_configs: static/game_configs/ <-- Managed by code now
+  saves: assets/saves/
+
+ai:
+  max_concurrent_requests: 10
+  max_parse_retries: 3
+
+game:
+  init_npc_num: 9
+  sect_num: 3 # init_npc_num大于sect_num时，会随机选择sect_num个宗门
+  start_year: 100 # 世界开始年份
+  npc_awakening_rate_per_month: 0.01
+  fortune_probability: 0.005
+  misfortune_probability: 0.005
+  birth_rate_per_month: 0.005 # 每月生育概率 (0.5%)
+  max_children_per_couple: 2 # 每对道侣最大子女数量
+  max_action_rounds_per_turn: 3 # 每回合动作最大轮数（处理抢占/连招）
+  long_dead_cleanup_years: 20 # 多少年后清理已经完全没有影响力的死者
+  gathering:
+    auction_trigger_count: 5
+    sect_teaching_prob: 0.05
+    base_epiphany_prob: 0.02
+
+df:
+  ids_separator: ";"
+
+avatar:
+  persona_num: 3
+
+social:
+  major_event_context_num: 10  # 大事（长期记忆）展示数量
+  minor_event_context_num: 10  # 小事（短期记忆）展示数量
+  relation_check_threshold: 5 # 关系检查需要的交互次数
+
+nickname:
+  major_event_threshold: 3  # 获得绰号需要的长期事件数量
+  minor_event_threshold: 25  # 获得绰号需要的短期事件数量
+
+save:
+  max_events_to_save: 1000
+
+frontend:
+  water_speed: low
+  cloud_freq: low
+system:
+  language: zh-CN
+  host: "127.0.0.1"  # 服务器绑定地址，设为 "0.0.0.0" 允许局域网访问。
+  port: 8002         # 服务器端口。
+
+play:
+  base_benefit_probability: 0.05
